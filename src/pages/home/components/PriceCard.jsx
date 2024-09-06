@@ -29,7 +29,7 @@ function PriceCard({ frequency }) {
 
           <div className=" row-span-1 flex sm:flex-col md:flex-row justify-start gap-5 items-center">
                 <Button bg={'accent'} text='start free trial' style={'bg-primary border border-accent2 '}/>
-                <Button bg={'accent'} text='choose plan'  style={'hover:bg-accent2 hover:border hover:border-primary active:border-accent'}/>
+                <Button bg={'accent'} text='choose plan'  style={'md:hover:bg-accent2 md:hover:border md:hover:border-primary active:border-accent'}/>
           </div>
         </div>
       ))}

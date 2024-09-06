@@ -6,7 +6,7 @@ function DevicesGrid() {
         {
             deviceInfos.map ((device) => (
 
-                <div  key={device.name} className="grid grid-rows-2 p-10  border border-accent2 rounded-xl bg-gradient-to-tr from-[#0a0a0a] to-[#e500001c] hover:border-[#e5000028] ease-linear duration-1000 from-70%  hover:to-[#e5000038]">
+                <div  key={device.name} className="grid grid-rows-2 p-10  border border-accent2 rounded-xl bg-gradient-to-tr from-[#0a0a0a] to-[#e500001c] md:hover:border-[#e5000028] ease-linear duration-1000 from-70%  md:hover:to-[#e5000038]">
                     <div className=" flex justify-start gap-4 items-center" >
                         <div className=" h-12 w-12 bg-[#111111] rounded-lg flex justify-center items-center"><img src={device.icon} alt={device.name} className=" max-w-[70%] max-h-[70%] object-cover " /></div>
                     <h3 className=" capitalize font-semibold ">{device.name}</h3>

@@ -12,7 +12,7 @@ export default function Footer() {
           </div>
           <div className=" flex flex-col justify-between items-center md:items-start text-ash text-sm md:text-xs gap-2">
             {widget.children.map((child, index) => (
-              <Link key={index} className=" hover:text-accent" to={child.link}> {child.name} </Link>
+              <Link key={index} className=" md:hover:text-accent" to={child.link}> {child.name} </Link>
             ))}
           </div>
         </div>
@@ -34,9 +34,9 @@ export default function Footer() {
       <div className="flex flex-col md:flex-row justify-center md:justify-between border-t-[1px] w-full text-ash text-xs pt-5 border-ash capitalize border-opacity-20">
         <div className="text-center md:text-left mb-5 md:mb-0">@2024 Abdulfatai Aliyu, alrights reserved</div>
         <div className="flex gap-3 justify-center md:justify-start ">
-          <Link className=" hover:text-accent " to="/terms">terms of use</Link>
-          <Link className=" hover:text-accent " to="/privace">privace policy</Link>
-          <Link className=" hover:text-accent " to="/cookie">cookie policy</Link>
+          <Link className=" md:hover:text-accent " to="/terms">terms of use</Link>
+          <Link className=" md:hover:text-accent " to="/privace">privace policy</Link>
+          <Link className=" md:hover:text-accent " to="/cookie">cookie policy</Link>
         </div>
       </div>
     </footer>

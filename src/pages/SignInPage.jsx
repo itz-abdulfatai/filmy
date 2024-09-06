@@ -120,7 +120,7 @@ function SignInPage() {
               {!isNew && (
                 <p
                   onClick={handleForgot}
-                  className=" text-sm hover:text-ash cursor-pointer self-end mb-2"
+                  className=" text-sm md:hover:text-ash cursor-pointer self-end mb-2"
                 >
                   forgot password?
                 </p>
@@ -161,7 +161,7 @@ function SignInPage() {
                     onClick={() => {
                       setIsNew(false);
                     }}
-                    className=" hover:text-accent font-bold"
+                    className=" md:hover:text-accent font-bold"
                   >
                     login
                   </button>
@@ -171,7 +171,7 @@ function SignInPage() {
                     onClick={() => {
                       setIsNew(true);
                     }}
-                    className=" hover:text-accent font-bold"
+                    className=" md:hover:text-accent font-bold"
                   >
                     signup
                   </button>
@@ -190,7 +190,7 @@ function SignInPage() {
                 onClick={() => {
                   setIsHandilingP(false);
                 }}
-                className="text-xs hover:text-accent cursor-pointer text-end "
+                className="text-xs md:hover:text-accent cursor-pointer text-end "
               >
                 <img src={assets.x} alt="" />
               </span>

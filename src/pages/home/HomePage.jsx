@@ -96,10 +96,10 @@ export default function HomePage() {
           </p>
         </div>
         <div className=" w-40 md:h-12 h-16 rounded-lg border border-secondary bg-primary flex items-stretch p-1">
-          <button   onClick={handleToM} className={`  w-1/2 flex justify-center items-center rounded-lg  px-2 ${frequency == "monthly"?" bg-secondary hover:bg-[#080808]":"bg-primary"}`} >
+          <button   onClick={handleToM} className={`  w-1/2 flex justify-center items-center rounded-lg  px-2 ${frequency == "monthly"?" bg-secondary md:hover:bg-[#080808]":"bg-primary"}`} >
             monthly
           </button >
-          <button  onClick={handleToY} className={`  w-1/2 flex justify-center items-center rounded-lg  px-2 ${frequency == "yearly"?" bg-secondary hover:bg-[#080808]":"bg-primary"}`} >
+          <button  onClick={handleToY} className={`  w-1/2 flex justify-center items-center rounded-lg  px-2 ${frequency == "yearly"?" bg-secondary md:hover:bg-[#080808]":"bg-primary"}`} >
             yearly
           </button>
         </div>
