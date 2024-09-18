@@ -38,6 +38,10 @@
   .action-btn {
     @apply bg-primary  border border-secondary p-3 sm:p-2 rounded-lg flex justify-center items-center md:hover:bg-secondary md:hover:border-primary;
   }
+
+
+
+  
 }
 
 .hero {
@@ -52,4 +56,67 @@
 
 .featured-nav {
   grid-template-columns: 30px auto 30px;
+}
+
+
+/* react slick */
+
+.image-slider-container {
+  margin: 0 auto;
+  width: 400px;
+}
+
+.image-slider-container .slick-prev:before,
+.image-slider-container .slick-next:before {
+  color: white;
+}
+
+
+.slider-nav {
+  display: flex;
+  justify-content:center !important;
+  gap: 5px;
+  position: relative !important;
+  align-items:center;
+  background-color: #1a1a1a;  /* Dark background similar to the image */
+  padding: 10px;
+  width:fit-content;
+  border-radius: 10px;
+}
+
+
+.custom-pagination {
+  position: relative !important;
+  /* top: 0; */
+  /* padding-top: 5px; */
+  margin-top: 15px;
+  /* border: 1px red solid; */
+  /* display: flex; */
+  /* gap: 5px; */
+  /* flex-grow: 1; Make pagination stretch */
+  width: 100px;
+  justify-content: center; /*Center pagination*/
+  /* overflow: hidden !important; */
+}
+
+.custom-pagination .swiper-pagination-bullet {
+  width: 15px;
+  height: 5px;
+  background-color: #555; /* Inactive bullet color */
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  background-color: red; /* Active bullet color */
+}
+
+/* Dynamic bullet styles */
+.custom-pagination .swiper-pagination-bullet {
+  opacity: 0.5;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+  transform: scale(1.2); /* Slightly larger active bullet */
 }

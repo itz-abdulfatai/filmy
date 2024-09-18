@@ -2,14 +2,34 @@ import { useState } from "react";
 import Button from "../../../components/Button";
 import { assets } from "../../../assets/icons";
 
+// export const avengersImg = require('../../../src/assets/images/avengers.jpg')
+
+// import avengersImg from '../../../assets/images/avengers.jpg'
+
+import { avengersImg, civilWars, infinityWars } from "../../../assets/images";
+
+
 function MoviesHero() {
   const movies = [
     {
       name: "Avengers : endgame",
       description:
         "with the help of the remaining allies, the Avengers must assemble once more in order to undo thanos actions and undo the chaos in the universe. no matter who the face..... Avenge the fallen.",
-      image: "../../../src/assets/images/avengers.jpg",
+      image: avengersImg,
     },
+    {
+      name: "Avengers : infinity wars",
+      description:
+        "this sis the first part of the avengers last run... where tarnos made a half of the universe varnish.",
+      image: infinityWars,
+    },
+
+    {
+      name: "captain americe : civil war",
+      description:
+        "this is the first part of all... where cap cause wahala and made every body help him fix...... also they went to nigeria.",
+      image: civilWars,
+    }
   ];
   const [activeMovie, setActiveMovie] = useState(0);
 
@@ -49,7 +69,13 @@ function MoviesHero() {
         </div>
       </div>
       <div className=" hidden sm:grid  w-full px-10 featured-nav z-10">
-        <button className=" justify-self-start    bg-primary border border-secondary p-1 rounded-lg flex justify-center items-center md:hover:bg-secondary active:bg-primary md:hover:border-primary">
+        <button className=" justify-self-start    bg-primary border border-secondary p-1 rounded-lg flex justify-center items-center md:hover:bg-secondary active:bg-primary md:hover:border-primary" onClick={() => {
+          if (activeMovie > 0 ) {
+            setActiveMovie(activeMovie - 1)
+            console.log(activeMovie)
+
+          } 
+        }}>
           {" "}
           <img src={assets.arrowLeft} alt="" />
         </button>
@@ -69,8 +95,14 @@ function MoviesHero() {
         </div>
 
         {/* 3 buttons end */}
-        <button className=" justify-self-end    bg-primary border border-secondary p-1 rounded-lg flex justify-center items-center md:hover:bg-secondary active:bg-primary md:hover:border-primary">
-          {" "}
+        <button className=" justify-self-end    bg-primary border border-secondary p-1 rounded-lg flex justify-center items-center md:hover:bg-secondary active:bg-primary md:hover:border-primary" onClick={() => {
+          if (activeMovie < 2 ) {
+            setActiveMovie(activeMovie + 1)
+            console.log(activeMovie)
+          }
+          
+        }}>
+          
           <img src={assets.arrowRight} alt="" />
         </button>
       </div>

@@ -1,17 +1,49 @@
+import { useEffect } from "react";
 import Slider from "../../components/Slider";
+import VideoCard from "../../components/VideoCard";
 import MoviesHero from "./components/MoviesHero";
+const tmdbBaseUrl = 'https://image.tmdb.org/t/p/original';
 
 export default function MoviesAndShows() {
+  
+  useEffect(() => {
+
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYmU3ZmQ0YmFmMzYxNjA4MTA5ZTgxYjAzODRhMDlmMiIsIm5iZiI6MTcyNjY4MDkxMy4zODc5OTcsInN1YiI6IjY2NmE1ZWYxOTg2NjI3YmM1ZjA3ZjNmNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.IB_DSwACwudGAzh3r0Jv6RkrpZXH1wlL53SauTQPHUQ'
+      }
+    };
+
+
+    fetch("https://api.themoviedb.org/3/movie/top_rated", options)
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+
+    // fetch()
+  }, []);
+
   return (
     <div>
       {/* featured trailer */}
 
       <section className=" bg-primary pt-20  px-2 md:px-10">
-
-      <MoviesHero />
-
+        <MoviesHero />
       </section>
 
+      <Slider>
+        <VideoCard />
+        <VideoCard />
+        <VideoCard />
+        <VideoCard />
+        <VideoCard />
+        <VideoCard />
+        <VideoCard />
+        <VideoCard />
+        <VideoCard />
+        <VideoCard />
+      </Slider>
 
       {/* movies genres */}
 
@@ -34,8 +66,6 @@ export default function MoviesAndShows() {
       {/* must watch shows */}
 
       {/* cta */}
-      
-      
     </div>
   );
 }
