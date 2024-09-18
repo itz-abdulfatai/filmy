@@ -7,13 +7,13 @@ import "swiper/css";
 import "swiper/css/bundle";
 
 
-const id = Math.floor(Math.random()*999)
 
 
-const ArrowL = ({ className, style, onClick }) => {
+
+export const ArrowL = ({ id, onClick }) => {
   return (
     <div
-      className={` justify-self-start    bg-primary border border-secondary p-1 rounded-lg flex justify-center items-center md:hover:bg-secondary active:bg-primary md:hover:border-primary  slider-prev-button-${id} w-10 h-10`}
+      className={` justify-self-start    bg-primary border border-secondary p-1 rounded-lg flex justify-center items-center md:hover:bg-secondary active:bg-primary md:hover:border-primary  slider-prev-button-${id} w-8 h-8`}
       // style={{...style}}
       onClick={onClick}
     >
@@ -22,10 +22,10 @@ const ArrowL = ({ className, style, onClick }) => {
   );
 };
 
-const ArrowR = ({ className, style, onClick }) => {
+   export const ArrowR = ({ id, onClick }) => {
   return (
     <div
-      className={` justify-self-start    bg-primary border border-secondary p-1 rounded-lg flex justify-center items-center md:hover:bg-secondary active:bg-primary md:hover:border-primary slider-next-button-${id} w-10 h-10`}
+      className={` justify-self-start    bg-primary border border-secondary p-1 rounded-lg flex justify-center items-center md:hover:bg-secondary active:bg-primary md:hover:border-primary slider-next-button-${id} w-8 h-8`}
       onClick={onClick}
     >
       <img src={assets.arrowRight} alt="" />
@@ -35,8 +35,9 @@ const ArrowR = ({ className, style, onClick }) => {
 
 
 
+export default ({children, id}) => {
 
-export default ({children}) => {
+
   return (
     <>
       <div className=" h-52 flex justify-stretch items-stretch bg-primary w-[90vw] mx-auto">
@@ -54,7 +55,7 @@ export default ({children}) => {
             dynamicBullets: true,
            dynamicMainBullets: 4,
             
-            el: '.custom-pagination', // Target the external div
+            el: `.custom-pagination-${id}`, // Target the external div
             clickable: true, // Makes the pagination bullets clickable
           }}
           breakpoints={{
@@ -77,6 +78,7 @@ export default ({children}) => {
 
           slidesPerView={2}
           loop={true}
+          initialSlide={5}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
         >
@@ -91,24 +93,10 @@ export default ({children}) => {
 
         </Swiper>
       </div>
-      {/* <div className=" w-52 h-10 flex justify-start items-center gap-3 bg-accent">
-        <ArrowL />
-        <div>
 
-        <div className="custom-pagination w-60"></div>
-        </div>
-        <ArrowR />
-      </div> */}
+{/* slider-nav */}
 
-      <div className="slider-nav mx-auto">
-        <ArrowL/>
-        <div className=" relative flex items-center justify-center  h-full">
-        <div className="custom-pagination"></div>
 
-        </div>
-        <ArrowR/>
-
-      </div>
     </>
   );
 };

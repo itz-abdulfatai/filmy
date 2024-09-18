@@ -2,10 +2,18 @@ import { useEffect } from "react";
 import Slider from "../../components/Slider";
 import VideoCard from "../../components/VideoCard";
 import MoviesHero from "./components/MoviesHero";
+import MovieList from "../../components/MovieList";
+import useFetchLists from "../../hooks/useFetchLists";
 const tmdbBaseUrl = 'https://image.tmdb.org/t/p/original';
 
 export default function MoviesAndShows() {
   
+
+
+useFetchLists('/tv/popular')
+/*
+
+
   useEffect(() => {
 
     const options = {
@@ -17,12 +25,13 @@ export default function MoviesAndShows() {
     };
 
 
-    fetch("https://api.themoviedb.org/3/movie/top_rated", options)
+    fetch("https://api.themoviedb.org/3/tv/latest", options)
       .then((response) => response.json())
       .then((data) => console.log(data));
 
     // fetch()
   }, []);
+  */
 
   return (
     <div>
@@ -32,19 +41,45 @@ export default function MoviesAndShows() {
         <MoviesHero />
       </section>
 
-      <Slider>
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-      </Slider>
+      <section className=" bg-primary pt-20  px-2 md:px-10">
+        
 
+
+
+      <MovieList title={'first title'}>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+      </MovieList>
+
+
+      <MovieList title={'second title'}>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+      </MovieList>
+
+      </section>
       {/* movies genres */}
 
       {/* top ten in movie genres */}
@@ -69,3 +104,4 @@ export default function MoviesAndShows() {
     </div>
   );
 }
+
