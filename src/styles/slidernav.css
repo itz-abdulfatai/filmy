@@ -1,0 +1,50 @@
+
+.slider-nav {
+    display: flex;
+    justify-content:space-between !important;
+    gap: 5px;
+    position: relative !important;
+    align-items:center;
+    background-color: #1a1a1a;  /* Dark background similar to the image */
+    padding: 5px;
+    width:200px;
+    border-radius: 6px;
+  }
+  
+  
+  .custom-pagination {
+    position: relative !important;
+    /* top: 0; */
+    /* padding-top: 5px; */
+    margin-top: 15px;
+    /* border: 1px red solid; */
+    /* display: flex; */
+    /* gap: 0 !important; */
+    /* flex-grow: 1; Make pagination stretch */
+    width: 100px !important;
+    /* left: 50% !important; */
+    /* overflow: hidden !important; */
+    /* justify-content:stretch !important; */
+  }
+  
+  /* .custom-pagination  */
+  .swiper-pagination-bullet {
+    transform: none !important;
+    width: 15px;
+    opacity: 0.5;
+    height: 5px;
+    margin: 0 1px  !important;
+    background-color: #555; /* Inactive bullet color */
+    border-radius: 2px;
+    transition: background-color 0.3s;
+  }
+  
+  /* .custom-pagination  */
+  .swiper-pagination-bullet-active {
+    background-color: red; /* Active 
+  bullet color */
+  opacity: 1;
+  
+  }
+  
+  

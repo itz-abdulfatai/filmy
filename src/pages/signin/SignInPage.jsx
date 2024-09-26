@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
-import Button from "../components/Button";
-import { UserContext } from "../contexts/UserContext";
+import Button from "../../components/Button";
+import { UserContext } from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
-import { socials } from "../assets";
-import { assets } from "../assets/icons";
-import Carousel from "../components/Carousel";
+import { socials } from "../../assets";
+import { assets } from "../../assets/icons";
+import Carousel from "../../components/Carousel";
 
 function SignInPage() {
   const [isNew, setIsNew] = useState(false);

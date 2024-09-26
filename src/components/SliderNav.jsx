@@ -1,5 +1,6 @@
 import React from 'react'
 import { ArrowL, ArrowR } from './Slider'
+import "../styles/slidernav.css"
 
 function SliderNav({id}) {
   return (

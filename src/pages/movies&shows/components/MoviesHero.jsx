@@ -8,7 +8,6 @@ import { assets } from "../../../assets/icons";
 
 import { avengersImg, civilWars, infinityWars } from "../../../assets/images";
 
-
 function MoviesHero() {
   const movies = [
     {
@@ -29,7 +28,7 @@ function MoviesHero() {
       description:
         "this is the first part of all... where cap cause wahala and made every body help him fix...... also they went to nigeria.",
       image: civilWars,
-    }
+    },
   ];
   const [activeMovie, setActiveMovie] = useState(0);
 
@@ -40,6 +39,7 @@ function MoviesHero() {
         backgroundImage: `url(${movies[activeMovie].image})`,
       }}
     >
+      
       <div className=" absolute top-0 left-0 right-0 bottom-0 bg-transparent bg-gradient-to-b from-transparent to-primary from-0%"></div>
       <div className="w-2/3 sm:w-3/5 h-1/3  flex flex-col justify-end items-center z-10">
         <h2 className=" capitalize text-2xl sm:text-xl font-bold">
@@ -69,47 +69,54 @@ function MoviesHero() {
         </div>
       </div>
       <div className=" hidden sm:grid  w-full px-10 featured-nav z-10">
-        <button className=" justify-self-start    bg-primary border border-secondary p-1 rounded-lg flex justify-center items-center md:hover:bg-secondary active:bg-primary md:hover:border-primary" onClick={() => {
-          if (activeMovie > 0 ) {
-            setActiveMovie(activeMovie - 1)
-            console.log(activeMovie)
-
-          } 
-        }}>
+        <button
+          className=" justify-self-start    bg-primary border border-secondary p-1 rounded-lg flex justify-center items-center md:hover:bg-secondary active:bg-primary md:hover:border-primary"
+          onClick={() => {
+            if (activeMovie > 0) {
+              setActiveMovie(activeMovie - 1);
+              console.log(activeMovie);
+            }
+          }}
+        >
           {" "}
           <img src={assets.arrowLeft} alt="" />
         </button>
 
         {/* 3 buttons start */}
         <div className=" flex justify-center items-center gap-1">
-          <button>
-            <div className=" bg-accent rounded w-5 h-1 "></div>
+          {/* <button>
+            <div className={` bg-accent rounded w-5 h-1`}></div>
+          </button> */}
+          <button onClick={() => {setActiveMovie(0)}}>
+            <div className={`  rounded w-5 h-1  ${activeMovie == 0 ? 'bg-accent ': 'bg-secondary md:hover:bg-primary' }`}></div>
           </button>
-          <button>
-            <div className=" bg-secondary rounded w-5 h-1 md:hover:bg-primary"></div>
+          <button onClick={() => {setActiveMovie(1)}}>
+            <div className={`  rounded w-5 h-1  ${activeMovie == 1 ? 'bg-accent ': 'bg-secondary md:hover:bg-primary' }`}></div>
           </button>
 
-          <button>
-            <div className=" bg-secondary rounded w-5 h-1 md:hover:bg-primary"></div>
+          <button onClick={() => {setActiveMovie(2)}}>
+            <div className={`  rounded w-5 h-1  ${activeMovie == 2 ? 'bg-accent ': 'bg-secondary md:hover:bg-primary' }`}></div>
           </button>
         </div>
 
         {/* 3 buttons end */}
-        <button className=" justify-self-end    bg-primary border border-secondary p-1 rounded-lg flex justify-center items-center md:hover:bg-secondary active:bg-primary md:hover:border-primary" onClick={() => {
-          if (activeMovie < 2 ) {
-            setActiveMovie(activeMovie + 1)
-            console.log(activeMovie)
-          }
-          
-        }}>
-          
+        <button
+          className=" justify-self-end    bg-primary border border-secondary p-1 rounded-lg flex justify-center items-center md:hover:bg-secondary active:bg-primary md:hover:border-primary"
+          onClick={() => {
+            if (activeMovie < 2) {
+              setActiveMovie(activeMovie + 1);
+              console.log(activeMovie);
+            }
+          }}
+        >
           <img src={assets.arrowRight} alt="" />
         </button>
       </div>
       {/* transparent overlap */}
-      
     </div>
   );
 }
 
 export default MoviesHero;
+
+

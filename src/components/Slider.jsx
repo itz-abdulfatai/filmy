@@ -83,7 +83,7 @@ export default ({children, id}) => {
           onSwiper={(swiper) => console.log(swiper)}
         >
 
-            {children.map((child, index) => (
+            {children && children.map((child, index) => (
 
               <SwiperSlide key={index}>
                 {child}

@@ -1,52 +1,57 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const useFetchLists = (endpoint) => {
-    const options = {
-        method: 'GET',
-        headers: {
-          accept: 'application/json',
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYmU3ZmQ0YmFmMzYxNjA4MTA5ZTgxYjAzODRhMDlmMiIsIm5iZiI6MTcyNjY4MDkxMy4zODc5OTcsInN1YiI6IjY2NmE1ZWYxOTg2NjI3YmM1ZjA3ZjNmNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.IB_DSwACwudGAzh3r0Jv6RkrpZXH1wlL53SauTQPHUQ'
-        }
-      };
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [data, setData] = useState(null);
+  const url = "https://api.themoviedb.org/3";
 
-      const url = "https://api.themoviedb.org/3"
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYmU3ZmQ0YmFmMzYxNjA4MTA5ZTgxYjAzODRhMDlmMiIsIm5iZiI6MTcyNjY4MDkxMy4zODc5OTcsInN1YiI6IjY2NmE1ZWYxOTg2NjI3YmM1ZjA3ZjNmNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.IB_DSwACwudGAzh3r0Jv6RkrpZXH1wlL53SauTQPHUQ",
+    },
+  };
+  const fetchList = async (endpoint) => {
+    try {
+      setLoading(true);
+      setError(null);
+      const response = await fetch(url + endpoint, options);
+      if (response.ok) {
+        const data = await response.json();
+      setData(data);
+      console.log(data);
+      setLoading(false);
 
-      useEffect(() => {
-        async function fetchList() {
-           try {
-            const response =  await fetch((url+endpoint), options)
-            const data = await response.json()
-            console.log(data)
-           } catch (error) {
-            alert(error.message)
-            console.log(error)
-            
-           }
-            
-        }
+      } else if (!response.ok) {
+        const errorResponse = await response.json();
+        const error = new Error(errorResponse.status_message);
+        error.status = response.status; 
+        error.body = errorResponse;
+        console.log(errorResponse)
+        throw error;
+    }
+      
+      
+    } catch (error) {
+      setError(error);
+      setLoading(false);
+      setData(null);
+      // alert(error.message);
+      console.log(error);
+    }
+  };
 
-        fetchList()
+  useEffect(() => {
+    fetchList(endpoint);
+  }, []);
 
-      }, [])
+  return { error, data, loading, fetchList };
+};
 
-
-
-
-
-    return {}
-}
-
-export default useFetchLists
-
-
-
-
-
-
-
-
-
-
+export default useFetchLists;
 
 // {
 //     "page": 1,
